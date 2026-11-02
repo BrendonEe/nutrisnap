@@ -1,0 +1,10 @@
+{
+  "name": "NutriSnap",
+  "short_name": "NutriSnap",
+  "description": "Free food photo calorie tracker",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f6ef",
+  "theme_color": "#17392d",
+  "icons": [{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
