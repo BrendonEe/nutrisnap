@@ -35,3 +35,11 @@ No domain purchase is required. GitHub Pages is free for public repositories. Th
 
 ## Goal guide update
 The site now includes an optional age, height and weight-based training-goal guide. It calculates BMI as a screening reference only. For users under 20, it does not automatically recommend cutting or bulking because BMI should be interpreted using age- and sex-specific percentiles. For adults, the suggestion is deliberately cautious because BMI cannot distinguish muscle from fat.
+
+
+## Personal nutrition targets (updated)
+- Profile includes age, height, weight, sex used by the adult equation, daily activity and training focus.
+- For adults aged 19+, estimated maintenance calories use the Mifflin–St Jeor resting-energy equation multiplied by an activity factor; goal adjustments are modest (+5% muscle gain, 0% maintenance/recomposition, -10% fat loss).
+- Protein target for adults is estimated at 1.6 g/kg/day; carbohydrate and fat targets are derived from the calorie estimate.
+- For users under 19, the adult calorie equation and calorie deficit/surplus are not applied. The site shows a youth-athlete protein reference range (1.2–1.6 g/kg/day) and recommends professional guidance for intentional weight changes.
+- Estimates are educational only and may be inaccurate. The site stores profile and logs locally in the current browser.
