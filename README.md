@@ -1,45 +1,45 @@
-# NutriSnap
+# NutriSnap 3.0
 
-A free, mobile-first food diary and calorie estimator. No account, backend, paid API, or subscription is required.
+A free, mobile-first, Chinese/English food diary and nutrition-estimation PWA. No account, backend, paid API, or subscription is required.
 
-## Features
-- Chinese / English interface
-- Photo upload and mobile camera capture
-- Optional in-browser image classification using the open-source Transformers.js CLIP model (downloaded from the public CDN on first use)
-- User confirms food name and portion, then edits calorie/macronutrient estimates
-- Daily calorie and macro totals, editable goal, meal history, weight log
-- Local browser storage and installable PWA shell
+## What's included
+- Chinese / English interface and responsive mobile layout.
+- Food photo upload and mobile camera capture.
+- Optional in-browser image classification with the open-source Transformers.js CLIP model. The model is downloaded from a public CDN on first use and may be large.
+- User confirmation of food name, portion, meal type, cooking method, ingredients and nutrition values.
+- Approximate nutrition references for selected common foods; unknown foods are not silently assigned a generic nutrition value.
+- Daily calorie, protein, carbohydrate and fat totals with progress bars.
+- Personal profile and cautious adult nutrition-target estimates.
+- Meal history by date; edit and delete meal records.
+- Weight log with a trend chart; delete individual weight entries.
+- Favorite foods for faster logging.
+- JSON backup export and import.
+- PWA install support and offline app shell.
 
-## Run locally
-Open `index.html` from a local static server (recommended):
+## Deploy with GitHub Pages
+1. Extract this ZIP on your phone or computer.
+2. Open your public `nutrisnap` GitHub repository.
+3. Upload **all files inside this folder** to the repository root, replacing files with the same names. Do not upload the outer folder itself.
+4. Commit the changes to the `main` branch.
+5. Wait for GitHub Pages to redeploy, then open the existing Pages URL. If an old version remains, close the installed web app and reopen it after refreshing Safari.
+
+## Privacy and data
+- Food photos are processed in the browser. The CLIP model is downloaded from jsDelivr on first use; the photo itself is not uploaded by this static app.
+- Food logs, profile and weight records are stored in the current browser's localStorage. They do not sync between devices and can be lost if browser site data is cleared.
+- Use **Data & Privacy → Export backup** regularly. Keep the JSON backup somewhere safe. Import is available in the same browser or another browser.
+- Do not enter passwords, payment details or sensitive personal information.
+
+## Important limitations
+- CLIP is a general image classifier, not a dedicated food-recognition, ingredient-detection or portion-measurement model. Its similarity score is not a probability that the prediction is correct.
+- Nutrition values are estimates, not laboratory measurements. Ingredients, sauces, oil and portion size can change values substantially. Review and edit every result.
+- The built-in reference table covers only selected foods. For unmatched foods, enter nutrition values manually rather than relying on a guessed default.
+- Adult calorie targets use a general equation and activity multiplier, not a clinical assessment. For users under 20, the app avoids setting a calorie deficit/surplus from adult BMI and recommends professional guidance for intentional weight change.
+- This is a static client-side app: no accounts, cloud sync or server-side backup.
+
+## Local testing
+Run from a local static server (service workers do not work from `file://`):
 
 ```bash
 python3 -m http.server 8000
 ```
 Then visit `http://localhost:8000`.
-
-## Free public deployment with GitHub Pages
-1. Create a public GitHub repository named `nutrisnap`.
-2. Upload all files in this folder to the repository root.
-3. In **Settings → Pages**, select **Deploy from a branch**, choose `main` and `/ (root)`, then Save.
-4. GitHub will publish the site at `https://YOUR-USERNAME.github.io/nutrisnap/`.
-
-No domain purchase is required. GitHub Pages is free for public repositories. The AI model is downloaded client-side from the jsDelivr public CDN; it is not hosted by this project. Model download requires an internet connection and may be large. The site remains usable with manual food entry if the model fails to load.
-
-## Important limitations
-- CLIP is a general image classifier, not a nutrition database or precise portion detector. It may misidentify mixed dishes.
-- The calorie/macronutrient values are estimates based on rough food references; the user should confirm ingredients, cooking oil, sauces and portion size.
-- Records are stored in the current browser's localStorage. They do not automatically sync across devices and may be lost if browser data is cleared.
-- This static version has no server-side image upload, user accounts, or cloud backup.
-
-
-## Goal guide update
-The site now includes an optional age, height and weight-based training-goal guide. It calculates BMI as a screening reference only. For users under 20, it does not automatically recommend cutting or bulking because BMI should be interpreted using age- and sex-specific percentiles. For adults, the suggestion is deliberately cautious because BMI cannot distinguish muscle from fat.
-
-
-## Personal nutrition targets (updated)
-- Profile includes age, height, weight, sex used by the adult equation, daily activity and training focus.
-- For adults aged 19+, estimated maintenance calories use the Mifflin–St Jeor resting-energy equation multiplied by an activity factor; goal adjustments are modest (+5% muscle gain, 0% maintenance/recomposition, -10% fat loss).
-- Protein target for adults is estimated at 1.6 g/kg/day; carbohydrate and fat targets are derived from the calorie estimate.
-- For users under 19, the adult calorie equation and calorie deficit/surplus are not applied. The site shows a youth-athlete protein reference range (1.2–1.6 g/kg/day) and recommends professional guidance for intentional weight changes.
-- Estimates are educational only and may be inaccurate. The site stores profile and logs locally in the current browser.
